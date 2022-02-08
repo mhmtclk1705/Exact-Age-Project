@@ -1,34 +1,38 @@
 let datePicker = document.getElementById("birthday");
-// let calcDate = datePicker.value.getDate();
-console.log(datePicker);
+
 let loadingImage = document.getElementById("image");
 
 
 function ageCalc(){
 let birthDay = new Date(datePicker.value).getTime();
-let diff = (new Date().getTime() - birthDay) / 1000;
-let minute = 60
-let hour = minute * 60
-let day = hour * 24
-let month = day * 30
-let year = month * 12 + (5*day + 6*hour)
 
-let yearDiff = Math.floor(diff / year);
-let monthDiff = Math.floor((diff %year) / month);
-let dateDiff = Math.floor((diff % month) / day);
-let hourDiff = Math.floor((diff % day) / hour);
-let minuteDiff = Math.floor((diff % hour) / minute);
-let secondDiff = Math.floor((diff % minute));
+let calcYear = new Date().getFullYear() - new Date(datePicker.value).getFullYear();
+let calcMonth = new Date().getMonth() - new Date(datePicker.value).getMonth();
+let calcDate = new Date().getDate() - new Date(datePicker.value).getDate();
+let calcHour = new Date().getHours() - new Date(datePicker.value).getHours();
+let calcMinute = new Date().getMinutes() - new Date(datePicker.value).getMinutes();
+let calcSecond = new Date().getSeconds() - new Date(datePicker.value).getSeconds();
 
-document.querySelector(".age__calculator--years h2").innerText = `${yearDiff}`
-document.querySelector(".age__calculator--months h2").innerText = `${monthDiff}`
-document.querySelector(".age__calculator--days h2").innerText = `${dateDiff}`
-document.querySelector(".age__calculator--hours h2").innerText = `${hourDiff}`
-document.querySelector(".age__calculator--minutes h2").innerText = `${minuteDiff}`
-document.querySelector(".age__calculator--seconds h2").innerText = `${secondDiff}`
+if(calcDate < 0){
+    calcDate +=31;
+    calcMonth -=1;
+}
+if (calcMonth < 0){
+        calcMonth += 12;
+        calcYear -= 1;
+    }
+
+document.querySelector(".age__calculator--years h2").innerText = `${calcYear}`
+document.querySelector(".age__calculator--months h2").innerText = `${calcMonth}`
+document.querySelector(".age__calculator--days h2").innerText = `${calcDate}`
+document.querySelector(".age__calculator--hours h2").innerText = `${calcHour}`
+document.querySelector(".age__calculator--minutes h2").innerText = `${calcMinute}`
+document.querySelector(".age__calculator--seconds h2").innerText = `${calcSecond}`
+
+
 
 }
-
+// console.log(ageCalc());
 datePicker.addEventListener("change", () =>{
     if(new Date(datePicker.value).getFullYear() > new Date().getFullYear()){
         alert("Bugünün tarihinden büyük bir tarih seçtiniz...")
