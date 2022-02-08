@@ -30,5 +30,10 @@ document.querySelector(".age__calculator--seconds h2").innerText = `${secondDiff
 }
 
 datePicker.addEventListener("change", () =>{
+    if(new Date(datePicker.value).getFullYear() > new Date().getFullYear()){
+        alert("Bugünün tarihinden büyük bir tarih seçtiniz...")
+    }
+    else{
     setInterval(ageCalc,1000)
-    loadingImage.style.opacity = 0});
+    loadingImage.style.opacity = 0}
+});
