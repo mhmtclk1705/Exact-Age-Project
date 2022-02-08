@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Lato', sans-serif; -->
+    <title>Happy Year Countdown</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-image: url(img/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Lato', sans-serif;
+            color: white;
+        }
+    .age__calculator{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .age__calculator--header{
+        margin: 20px;
+        font-size: 2rem;
+    }
+
+.age__calculator--output{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 5rem;
+    line-height: 4rem;
+    font-size: 2rem;
+}
+.age__calculator--input{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    line-height: 3rem;
+}
+.loading{
+    /* width: 50px; */
+    position: relative;
+    top: -300px;
+    left: 49%;
+}
+.loading img{
+    width: 40px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="age__calculator">
+      <div class="age__calculator--header"><h1>Exact Age Calculator</h1></div>
+      <div class="age__calculator--output">
+        <div class="age__calculator--years">
+          <h2>00</h2>
+          <span>years</span>
+        </div>
+        <div class="age__calculator--months">
+          <h2>00</h2>
+          <span>months</span>
+        </div>
+        <div class="age__calculator--days">
+          <h2>00</h2>
+          <span>days</span>
+        </div>
+        <div class="age__calculator--hours">
+          <h2>00</h2>
+          <span>hours</span>
+        </div>
+        <div class="age__calculator--minutes">
+          <h2>00</h2>
+          <span>minutes</span>
+        </div>
+        <div class="age__calculator--seconds">
+          <h2>00</h2>
+          <span>seconds</span>
+        </div>
+      </div>
+      <div class="age__calculator--input">
+        <label for="birthday">Select Your Birthday</label>
+        <input type="date" id="birthday"  />
+      </div>
+    </div>
+    <div class="loading"><img id="image" src="img/spinner.gif" alt=""></div>
+    <script src="app.js"></script>
+  </body>
+</html>
