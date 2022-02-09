@@ -22,12 +22,12 @@ if (calcMonth < 0){
         calcYear -= 1;
     }
 
-document.querySelector(".age__calculator--years h2").innerText = `${calcYear}`
-document.querySelector(".age__calculator--months h2").innerText = `${calcMonth}`
-document.querySelector(".age__calculator--days h2").innerText = `${calcDate}`
-document.querySelector(".age__calculator--hours h2").innerText = `${calcHour}`
-document.querySelector(".age__calculator--minutes h2").innerText = `${calcMinute}`
-document.querySelector(".age__calculator--seconds h2").innerText = `${calcSecond}`
+document.querySelector(".age__calculator--years h2").innerText = `${calcYear}`.padStart(2,"0")
+document.querySelector(".age__calculator--months h2").innerText = `${calcMonth}`.padStart(2,"0")
+document.querySelector(".age__calculator--days h2").innerText = `${calcDate}`.padStart(2,"0")
+document.querySelector(".age__calculator--hours h2").innerText = `${calcHour}`.padStart(2,"0")
+document.querySelector(".age__calculator--minutes h2").innerText = `${calcMinute}`.padStart(2,"0")
+document.querySelector(".age__calculator--seconds h2").innerText = `${calcSecond}`.padStart(2,"0")
 
 
 
